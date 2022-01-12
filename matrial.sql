@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jan 2022 pada 13.39
+-- Waktu pembuatan: 12 Jan 2022 pada 12.59
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -261,6 +261,69 @@ INSERT INTO `data_toko` (`id`, `nama_toko`, `no_tlp`, `nama_pemilik`, `alamat`, 
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `friends`
+--
+
+CREATE TABLE `friends` (
+  `id` int(11) NOT NULL,
+  `groups_id` int(11) NOT NULL DEFAULT 0,
+  `nama` varchar(100) DEFAULT NULL,
+  `no_tlp` varchar(50) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `friends`
+--
+
+INSERT INTO `friends` (`id`, `groups_id`, `nama`, `no_tlp`, `alamat`, `created_at`, `updated_at`) VALUES
+(1, 0, 'Tatang', '081993520678', 'Cirebon', '2022-01-12 04:22:26', '2022-01-12 04:22:26'),
+(2, 0, 'Baharudin', '081993532987', 'Bekasi', '2022-01-12 05:18:44', '2022-01-12 11:11:41'),
+(3, 0, 'Sinta', '08383873383939', 'Bandung', '2022-01-12 05:18:44', '2022-01-12 05:18:44'),
+(4, 0, 'Surya', '08934567345', 'Jakarta', '2022-01-12 05:22:27', '2022-01-12 05:22:27'),
+(5, 1, 'linda', '037478499487847', 'Cirebon', '2022-01-12 05:25:18', '2022-01-12 11:09:21'),
+(6, 1, 'Vio', '093636377383', 'Bekasi', '2022-01-12 05:25:18', '2022-01-12 11:06:16'),
+(7, 0, 'Bento', '089345678543', 'Cirebon', '2022-01-12 05:25:41', '2022-01-12 05:25:41'),
+(8, 0, 'Nandi Saputra', '081993520674', 'Bandung', '2022-01-12 06:41:12', '2022-01-12 06:41:12');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `groups`
+--
+
+CREATE TABLE `groups` (
+  `id` bigint(11) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `groups`
+--
+
+INSERT INTO `groups` (`id`, `nama`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'groups apa', 'semua keluarga besar1', '2022-01-12 10:02:32', '2022-01-12 11:44:03');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `transaksi`
 --
 
@@ -348,7 +411,7 @@ INSERT INTO `users` (`id`, `nip`, `nis`, `name`, `image`, `email`, `email_orang_
 (1641094755, NULL, NULL, 'Nandi Saputra', 'user.webp', 'nasx07@gmail.com', NULL, '1641094755', NULL, '$2y$10$w7BfPjtlVz1vF84Lc2a5kOgmigR5J3gSXZ3zqZXzIjpoiCYHSBokO', 'Belum Di Input', NULL, 1, 1, NULL, NULL, 2, NULL, '2022-01-02 03:39:15', '2022-01-02 03:39:15'),
 (1641094975, NULL, NULL, 'Ucok', 'user.webp', 'nansx07@gmail.com', NULL, '1641094975', NULL, '$2y$10$8DvHSVodv5UxUEJ9Imld1.Vqgqo5NmXJT03h4/SpWjPSoXiOmXIOW', 'Belum Di Input', NULL, 1, 1, NULL, NULL, 2, NULL, '2022-01-02 03:42:55', '2022-01-05 05:14:21'),
 (1641359023, NULL, NULL, 'tatang', 'user.webp', 'enda@gmail.com', NULL, '1641359023', NULL, '$2y$10$hmYEvFfmjLIyFTRN3nCILuBMcDvlPZpPl0NvA/IHgVXVG6BETn1ay', 'Belum Di Input', NULL, 1, 1, NULL, NULL, 2, NULL, '2022-01-05 05:03:43', '2022-01-05 05:03:43'),
-(1641386309, NULL, NULL, 'NANDI SAPUTRA', 'user.webp', 'nandysyahputra59@gmail.com', NULL, '1641386309', NULL, '$2y$10$n96lkEMNo9mMNpLY7/No7OHQ2XUZOPA3C2oyc1X3RUGELfCt5xSKy', 'Belum Di Input', NULL, 1, 1, NULL, NULL, 2, NULL, '2022-01-05 12:38:29', '2022-01-05 12:38:29');
+(1641386309, NULL, NULL, 'NANDI SAPUTRA', 'user.webp', 'nandysyahputra59@gmail.com', NULL, '1641386309', NULL, '$2y$10$n96lkEMNo9mMNpLY7/No7OHQ2XUZOPA3C2oyc1X3RUGELfCt5xSKy', 'Belum Di Input', NULL, 1, 1, NULL, NULL, 2, NULL, '2022-01-05 12:38:29', '2022-01-06 13:32:23');
 
 -- --------------------------------------------------------
 
@@ -493,6 +556,24 @@ ALTER TABLE `data_toko`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `friends`
+--
+ALTER TABLE `friends`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -565,6 +646,24 @@ ALTER TABLE `data_komisi`
 --
 ALTER TABLE `data_toko`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+
+--
+-- AUTO_INCREMENT untuk tabel `friends`
+--
+ALTER TABLE `friends`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
